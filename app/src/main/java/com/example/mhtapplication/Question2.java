@@ -7,16 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    private Button button;
+public class Question2 extends AppCompatActivity {
 
+    private Button button3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_question2);
 
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        button3 = (Button) findViewById(R.id.button5);
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openquestions();
