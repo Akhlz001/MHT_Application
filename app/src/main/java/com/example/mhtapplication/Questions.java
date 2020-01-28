@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Questions extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class Questions extends AppCompatActivity {
     private RadioButton radioButton16;
     private RadioButton radioButton17;
     private RadioButton radioButton18;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,160 +78,20 @@ public class Questions extends AppCompatActivity {
     }
 
     public void opendiagnosis() {
+        // for all pairs: one of each pair has to be checked
+        boolean shouldStartNextActivity = (radioButton.isChecked() || radioButton2.isChecked())
+                && (radioButton3.isChecked() || radioButton4.isChecked()) && (radioButton5.isChecked() || radioButton6.isChecked())
+                && (radioButton7.isChecked() || radioButton8.isChecked())&& (radioButton9.isChecked() || radioButton10.isChecked())
+                && (radioButton11.isChecked() || radioButton12.isChecked())&& (radioButton13.isChecked() || radioButton14.isChecked())
+                && (radioButton15.isChecked() || radioButton16.isChecked())&& (radioButton17.isChecked() || radioButton18.isChecked());
 
-        if (radioButton.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton2.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
 
-        if (radioButton3.isChecked())
-        {
+        if (shouldStartNextActivity){
             Intent intent = new Intent(this, answers.class);
             startActivity(intent);
+        } else{
+            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis", Toast.LENGTH_LONG).show();
         }
-        else if (radioButton4.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton5.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton6.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton7.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton8.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton9.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton10.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton11.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton12.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton13.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton14.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton15.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton16.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (radioButton17.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else if (radioButton18.isChecked())
-        {
-            Intent intent = new Intent(this, answers.class);
-            startActivity(intent);
-        }
-        else
-        {
-            Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
     }
 
     @Override

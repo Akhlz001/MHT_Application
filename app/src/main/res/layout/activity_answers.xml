@@ -75,7 +75,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
-                android:text="Bipolar Disorder - A condition which affects mood. Mood can vary from one extreme to the other."
+                android:text=""
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -86,7 +86,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
-                android:text="Although this symptom is quite common it is easily treatable with the right medication. It is advised that you don't use this application as your only source of approval!"
+                android:text=""
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -97,7 +97,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
-                android:text="As this is quite a complicated symptom to diagnose, it is best that a psychiatrist diagnoses you. This allows you to see how severe the symptom is and what amount/type of treatment is required to become better. Get well soon!"
+                android:text=""
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
