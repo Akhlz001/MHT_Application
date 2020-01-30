@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Questions extends AppCompatActivity {
 
-    private Button button2;
+    private Button button2; //Check Symptoms button variable
 
+    //ALL RADIO BUTTONS ARE DECLARED HERE:
     private RadioButton radioButton;
     private RadioButton radioButton2;
     private RadioButton radioButton3;
@@ -35,16 +35,19 @@ public class Questions extends AppCompatActivity {
     private RadioButton radioButton18;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
 
-        button2 = (Button) findViewById(R.id.button2);
+
+        button2 = findViewById(R.id.button2); //Checks if the 'Check Symptom' button has been clicked
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                opendiagnosis();
+                opendiagnosis(); //Method called which stops the user from continuing (explained below).
+                diagnosispart(); //Method called which allows intent creation, symptom explanation.
             }
         });
 
@@ -77,8 +80,12 @@ public class Questions extends AppCompatActivity {
         radioButton18 = findViewById(R.id.radioButton18); //no
     }
 
+
     public void opendiagnosis() {
-        // for all pairs: one of each pair has to be checked
+
+        // for all pairs: one of each pair has to be checked, boolean statement was used,
+        // if no button is clicked in a question the user will be greeted with the toast notification.
+
         boolean shouldStartNextActivity = (radioButton.isChecked() || radioButton2.isChecked())
                 && (radioButton3.isChecked() || radioButton4.isChecked()) && (radioButton5.isChecked() || radioButton6.isChecked())
                 && (radioButton7.isChecked() || radioButton8.isChecked())&& (radioButton9.isChecked() || radioButton10.isChecked())
@@ -86,16 +93,29 @@ public class Questions extends AppCompatActivity {
                 && (radioButton15.isChecked() || radioButton16.isChecked())&& (radioButton17.isChecked() || radioButton18.isChecked());
 
 
-        if (shouldStartNextActivity){
+        if (shouldStartNextActivity){ //If all questions are answered the diagnosis page can show.
             Intent intent = new Intent(this, answers.class);
             startActivity(intent);
-        } else{
+        } else{ //If not, user is prompted to answer all the questions!
             Toast.makeText(getBaseContext(), "Please answer all the questions for an accurate diagnosis", Toast.LENGTH_LONG).show();
         }
     }
 
+    public void diagnosispart() { //Method creates the intent, stores symptom text and key value
+
+        if(radioButton.isChecked()) { //If the 'yes' radio button on the first question is clicked...
+            Intent a = new Intent(this, answers.class);
+            a.putExtra("Value1", "Nausea - you may be getting occasional headaches or feel some discomfort. " +
+                    "If the symptoms are severe enough you may be vomiting too. See below to check what this means.");
+            startActivity(a);
+
+            //Under development to allow second and third question to be answered using else if statements.
+        }
+
+    }
+
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle savedInstanceState) { // Very important, stores radio button data!
         super.onSaveInstanceState(savedInstanceState);
 
 
@@ -114,7 +134,7 @@ public class Questions extends AppCompatActivity {
     }
 
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
+    public void onRestoreInstanceState(Bundle savedInstanceState) { // Restores radio button when variable called!
         super.onRestoreInstanceState(savedInstanceState);
 
         radioButton.setChecked(savedInstanceState.getBoolean("myOption1"));
